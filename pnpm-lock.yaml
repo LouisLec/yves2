@@ -35,6 +35,7 @@ specifiers:
   '@types/react': ^18.0.22
   '@types/react-dom': ^18.0.7
   autoprefixer: ^10.4.13
+  cal-sans: ^1.0.1
   class-variance-authority: ^0.4.0
   clsx: ^1.2.1
   cmdk: ^0.1.21
@@ -86,6 +87,7 @@ dependencies:
   '@radix-ui/react-toggle': 1.0.1_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-toggle-group': 1.0.2_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-tooltip': 1.0.3_5ndqzdd6t4rivxsukjv3i3ak2q
+  cal-sans: 1.0.1
   class-variance-authority: 0.4.0_typescript@4.9.4
   clsx: 1.2.1
   cmdk: 0.1.22_5ndqzdd6t4rivxsukjv3i3ak2q
@@ -1937,6 +1939,10 @@ packages:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
+    dev: false
+
+  /cal-sans/1.0.1:
+    resolution: {integrity: sha512-XwN3/7jez8WmFVcNnNqO2K9lh133KiIcURCyGFnSM+ZmNZ8zIcOTNfr3SpenLAkRceYsq+fQNX/PL4C1rIkEPQ==}
     dev: false
 
   /call-bind/1.0.2:
