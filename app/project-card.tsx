@@ -2,6 +2,7 @@
 "use client"
 
 import { FC, useRef, useState } from "react"
+import { GripVertical } from "lucide-react"
 
 /*
   title: "Project 1",
@@ -92,7 +93,7 @@ export const ProjectCard: FC<Project> = ({
   return (
     <div
       ref={cardRef}
-      className="absolute z-20 border-4 border-slate-500 bg-slate-200 font-mono"
+      className="absolute isolate z-20 border-4 border-slate-500 bg-slate-200 font-mono"
       style={{
         left: `${position.x}%`,
         top: `${position.y}%`,
@@ -101,23 +102,26 @@ export const ProjectCard: FC<Project> = ({
       }}
     >
       <div
-        className="absolute -left-1 top-4 h-12 w-8 -translate-x-full rounded-l-lg bg-lime-500 "
+        className="absolute -left-0.5 top-4 z-20 flex h-8 w-6 -translate-x-full items-center rounded-l-lg bg-slate-500 "
         style={{
           cursor: isDragging ? "grabbing" : "grab",
         }}
         onMouseDown={handleMouseDown}
       >
-        grab
+        <GripVertical />
       </div>
       <div
         ref={resizeRef}
-        className="absolute bottom-0 right-0 h-6 w-6 cursor-se-resize rounded-full bg-blue-100 shadow-lg"
+        className="absolute bottom-0 right-0 z-20 h-6 w-6 cursor-se-resize border-b-8 border-r-8 border-slate-500"
         onMouseDown={handleResizeMouseDown}
-      >
-        resize
+      />
+      <div className="absolute inset-0 overflow-hidden ">
+        <img src={image} alt={title} className="h-full w-full object-cover " />
       </div>
-      <div className="overflow-hidden rounded-lg ">
-        <img src={image} alt={title} className="absolute object-cover" />
+      <div className="relative z-10 h-full w-full bg-slate-700/30 p-4">
+        <h3 className="text-5xl font-bold text-slate-50 drop-shadow-2xl">
+          {title}
+        </h3>
       </div>
     </div>
   )
