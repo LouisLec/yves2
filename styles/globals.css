@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* define a var called marquee-duration please*/
+:root {
+  --marquee-duration: 25s;
+}
+
 @keyframes rotate {
   from {
     rotate: 0deg;
@@ -19,4 +24,18 @@
 .blob {
   translate: -50% -50%;
   animation: rotate 15s linear infinite;
+}
+
+@keyframes translate {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: -100% 0;
+  }
+}
+
+.marquee {
+  animation: translate var(--marquee-duration, 25s) linear infinite;
 }

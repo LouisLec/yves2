@@ -50,7 +50,7 @@ export const HomePageDisplay: FC = () => {
   }, [blobRef])
 
   return (
-    <div className="relative h-full w-full">
+    <div className="relative h-full w-full overflow-hidden">
       <div
         id="blob"
         ref={blobRef}
