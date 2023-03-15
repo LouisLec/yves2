@@ -10,9 +10,9 @@ export default async function ProjectLayout({
 }) {
   return (
     <div className="flex h-full w-full gap-4 px-8 ">
-      <aside className="hidden xl:block">
+      {/*   <aside className="hidden xl:block">
         <ProjectNavigation projects={projects} />
-      </aside>
+      </aside> */}
       <div className="flex h-full w-full flex-col justify-center">
         {children}
       </div>

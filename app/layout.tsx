@@ -40,17 +40,30 @@ export default function RootLayout({
 }) {
   return (
     <html
+      suppressHydrationWarning
       lang="fr"
-      className={cn("h-screen w-screen ", fontCal.variable, fontSans.variable)}
+      className={cn(
+        "relative h-screen bg-purple-400",
+        fontCal.variable,
+        fontSans.variable
+      )}
     >
       <ThemeProvider>
-        <body className="relative h-full w-full bg-white text-black dark:bg-black dark:text-white">
-          {children}
-          <div className="absolute top-4 right-4 z-10">
-            <ThemeToggle />
+        <body className="absolute inset-4 flex h-[calc(100vh-32px)] flex-col  overflow-hidden border-4 border-lime-500 bg-white text-black dark:bg-black dark:text-white">
+          <div className="flex grow  overflow-hidden  border-4    border-pink-500 ">
+            <div className="w-8 border-4 border-yellow-400">jojo</div>
+            <div className="grow overflow-auto border-4 border-teal-500">
+              {children}
+            </div>
           </div>
+          <div className="flex items-center justify-between border-4 border-purple-500">
+            <SiteNav />
+            <div>
+              <ThemeToggle />
+            </div>
+          </div>
+          <div className="absolute top-4 right-4 z-10"></div>
           <TailwindIndicator />
-          <SiteNav />
         </body>
       </ThemeProvider>
     </html>

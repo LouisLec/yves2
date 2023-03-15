@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { notFound } from "next/navigation"
+import ReactMarkdown from "react-markdown"
 
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { getProjectBySlug } from "../projects"
@@ -15,12 +16,9 @@ export default async function ProjectPage({
   if (!project) return notFound()
 
   return (
-    <main className="flex h-[80vh] w-full flex-col items-center gap-4 bg-slate-500/20 lg:flex-row">
-      <div className="flex h-full flex-col gap-4 border border-sky-500 bg-slate-500/20">
-        <div className="flex w-full flex-col border border-lime-500 bg-slate-500/20">
-          {/* ici l&apos;image */}
-          <ProjectGallery project={project} />
-        </div>
+    <main className="flex flex-col items-center gap-4 overflow-hidden bg-slate-500/20 lg:flex-row">
+      <div className=" w-full border border-sky-500 bg-slate-500/20 lg:h-full">
+        <ProjectGallery project={project} />
 
         <div className="grid grow grid-cols-3 gap-4 border border-pink-500 bg-slate-500/20">
           <div className="col-span-2 bg-slate-500">
@@ -43,7 +41,11 @@ export default async function ProjectPage({
         </div>
       </div>
       <div className="flex h-full w-full grow flex-col justify-center border border-red-500 bg-slate-500/20 ">
-        <ScrollArea className="max-h-full ">{project?.description}</ScrollArea>
+        <ScrollArea className="max-h-full ">
+          <ReactMarkdown className="prose dark:prose-invert">
+            {project?.description}
+          </ReactMarkdown>
+        </ScrollArea>
       </div>
     </main>
   )

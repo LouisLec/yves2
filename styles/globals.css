@@ -4,7 +4,9 @@
 
 /* define a var called marquee-duration please*/
 :root {
-  --marquee-duration: 25s;
+  --marquee-duration: 5s;
+  --marquee-translation: -100%;
+  --marquee-status: running;
 }
 
 @keyframes rotate {
@@ -23,7 +25,7 @@
 
 .blob {
   translate: -50% -50%;
-  animation: rotate 15s linear infinite;
+  animation: rotate 15s linear infinite forwards;
 }
 
 @keyframes translate {
@@ -32,10 +34,11 @@
   }
 
   to {
-    translate: -100% 0;
+    translate: var(--marquee-translation) 0;
   }
 }
 
 .marquee {
-  animation: translate var(--marquee-duration, 25s) linear infinite;
+  animation: translate var(--marquee-duration, 25s) linear infinite forwards;
+  animation-play-state: var(--marquee-status);
 }
